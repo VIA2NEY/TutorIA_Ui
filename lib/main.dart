@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:tutoria/newUI/newUiHome.dart';
-import 'package:tutoria/screens/homescreen/homescreen.dart';
+import 'package:tutoria/screens/signup_screen.dart';
 import 'package:tutoria/theme/app_theme.dart';
 
 void main() {
@@ -14,27 +13,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
-    return ResponsiveSizer(builder: (context, orientation, screentype) {
-      return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: "TUTORIA",
-        theme: ThemeData(textTheme: AppTheme.lightTexTheme),
-        home: const Scaffold(body:HomeScreen() /*NewUiHome()*/),
-      );
-    });
-
-
-
-    // return MaterialApp(
-    //   title: 'Flutter Demo',
-    //   theme: ThemeData(
-    //     colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-    //     useMaterial3: true,
-    //   ),
-    //   home: const HomeScreen(),
-    // );
+    return ResponsiveSizer(
+      builder: (context, orientation, screentype) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: "Tutoria",
+          theme: ThemeData(textTheme: AppTheme.lightTexTheme),
+          home: const Scaffold(
+            body: SignupScreen(),
+          ),
+        );
+      },
+    );
   }
 }
-
-
