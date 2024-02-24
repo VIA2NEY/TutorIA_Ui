@@ -26,55 +26,55 @@ class _EtapeScreenState extends State<EtapeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 20),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                child: Text(
-                  widget.chapitre.titre ?? "",
-                  style: kAppbarDisplayH1,
+    return Scaffold(
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 20),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                  child: Text(
+                    widget.chapitre.titre ?? "",
+                    style: kAppbarDisplayH1,
+                  ),
                 ),
-              ),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: widget.chapitre.etapes.length,
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    child: MyTimeLineTile(
-                      isFirst: index == 0, // SI index = 0 true l'element est premier
-                      isLast: index == widget.chapitre.etapes.length - 1,
-                      // isPast: true, // Vous devez déterminer l'état de l'étape
-                      isPast: isPastList[index], // Utilise l'état de la liste
-                      nomEtape: widget.chapitre.etapes[index].titre ?? "",
-                    ),
-
-                    onTap: () {
-
-                      setState(() {
-                        // Met à jour l'état isPast de l'étape sélectionnée
-                        isPastList[index] = true;
-                      });
-
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => AiRead(), // Remplacez ProchainePage par votre prochaine page
-                        ),
-                      );
-                    },
-                  );
-                },
-              ),
-            ],
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: widget.chapitre.etapes.length,
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      child: MyTimeLineTile(
+                        isFirst: index == 0, // SI index = 0 true l'element est premier
+                        isLast: index == widget.chapitre.etapes.length - 1,
+                        // isPast: true, // Vous devez déterminer l'état de l'étape
+                        isPast: isPastList[index], // Utilise l'état de la liste
+                        nomEtape: widget.chapitre.etapes[index].titre ?? "",
+                      ),
+        
+                      onTap: () {
+        
+                        setState(() {
+                          // Met à jour l'état isPast de l'étape sélectionnée
+                          isPastList[index] = true;
+                        });
+        
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AiRead(), // Remplacez ProchainePage par votre prochaine page
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
-      ),
     );
   }
 }

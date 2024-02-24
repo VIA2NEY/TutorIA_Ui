@@ -15,86 +15,86 @@ class DetailsCours extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-    
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Text(
-                  nomMatiere,
-                  style: kAppbarDisplayH1,
+    return Scaffold( 
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+            
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  child: Text(
+                    nomMatiere,
+                    style: kAppbarDisplayH1,
+                  ),
                 ),
-              ),
-    
-              SizedBox(
-                height: 95.h,
-                child: FutureBuilder(
-                  future: Future.delayed(Duration(seconds: 1)),
-                  builder: (ctx, snapshot) {
-                    switch (snapshot.connectionState) {
-                      case ConnectionState.none:
-                      case ConnectionState.waiting:
-                        return Center(
-                            child: CircularProgressIndicator(
-                          color: AppTheme.darkBlue,
-                        ));
-                      default:
-                        if (snapshot.hasError) {
-                          return Text(
-                              "Error: ${snapshot.error}");
-                        } else if (!snapshot.hasData) {
-                          return ListView.builder(
-                            physics: BouncingScrollPhysics(),
-                            itemCount: list_cours.length,
-                            itemBuilder: (context, index) {
-                              return InkWell(
-                                child: CardChapitre(
-                                  index: index,
-                                  nom: cours.chapitres[index].titre!, 
-                                ),
-                  
-                                onTap: () {
-                                  print("Tappp");
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => EtapeScreen(chapitre: cours.chapitres[index],),
-                                    ),
-                                  );
-                                },
-                                
-                              );
-                  
-                              // ArticleWidget(
-                              //     url: itemList[index].link!,
-                              //     autor: itemList[index]
-                              //         .authorsNamesList![0],
-                              //     title:
-                              //         itemList[index].title ??
-                              //             '',
-                              //     description:
-                              //         itemList[index].summary ??
-                              //             '');
-                  
-                            },
-                          );
-                        } else {
-                          return const Center(
-                              child: Text('An Error occured'));
-                        }
-                    }
-                  },
+            
+                SizedBox(
+                  height: 95.h,
+                  child: FutureBuilder(
+                    future: Future.delayed(Duration(seconds: 1)),
+                    builder: (ctx, snapshot) {
+                      switch (snapshot.connectionState) {
+                        case ConnectionState.none:
+                        case ConnectionState.waiting:
+                          return Center(
+                              child: CircularProgressIndicator(
+                            color: AppTheme.darkBlue,
+                          ));
+                        default:
+                          if (snapshot.hasError) {
+                            return Text(
+                                "Error: ${snapshot.error}");
+                          } else if (!snapshot.hasData) {
+                            return ListView.builder(
+                              physics: BouncingScrollPhysics(),
+                              itemCount: list_cours.length,
+                              itemBuilder: (context, index) {
+                                return InkWell(
+                                  child: CardChapitre(
+                                    index: index,
+                                    nom: cours.chapitres[index].titre!, 
+                                  ),
+                    
+                                  onTap: () {
+                                    print("Tappp");
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => EtapeScreen(chapitre: cours.chapitres[index],),
+                                      ),
+                                    );
+                                  },
+                                  
+                                );
+                    
+                                // ArticleWidget(
+                                //     url: itemList[index].link!,
+                                //     autor: itemList[index]
+                                //         .authorsNamesList![0],
+                                //     title:
+                                //         itemList[index].title ??
+                                //             '',
+                                //     description:
+                                //         itemList[index].summary ??
+                                //             '');
+                    
+                              },
+                            );
+                          } else {
+                            return const Center(
+                                child: Text('An Error occured'));
+                          }
+                      }
+                    },
+                  ),
                 ),
-              ),
-    
-            ],
+            
+              ],
+            ),
           ),
         ),
-      ),
     );
   }
 }

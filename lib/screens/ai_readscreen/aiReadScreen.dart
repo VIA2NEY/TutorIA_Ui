@@ -91,7 +91,7 @@ class _AiReadState extends State<AiRead> {
                   // ),
 
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(3, 10.0, 5, 0),
+                    padding: const EdgeInsets.fromLTRB(18, 10.0, 5, 0),
                     child: Container(
                       margin: EdgeInsets.only(
                         bottom: 10,
