@@ -21,32 +21,32 @@ class Etape {
 
 
 List<Cours> list_cours = [
+
   Cours(
-    "Français",
+    "Physique chimie",
     [
       Chapitre(
-        "Grammaire",
+        " Cinématique du point matériel",
         [
-          Etape("Introduction à la grammaire"),
-          Etape("Exercices de grammaire"),
+          Etape("Introduction"),
+          Etape("Cinématique à 1 dimension"),
+          Etape("Cinématique à plusieurs dimensions "),
+          Etape("Exercices"),
         ],
       ),
       Chapitre(
-        "Orthographe",
+        "LES ALCANES",
         [
-          Etape("Règles d'orthographe"),
-          Etape("Exercices d'orthographe"),
-        ],
-      ),
-      Chapitre(
-        "Conjugaison",
-        [
-          Etape("Règles de conjugaison"),
-          Etape("Exercices de conjugaison"),
+          Etape("Tétravalence du carbone"),
+          Etape("Les alcanes"),
+          Etape("Les réactions de combustions"),
+          Etape("Les réactions de substitution"),
         ],
       ),
     ],
   ),
+
+  
   Cours(
     "Mathématiques",
     [
@@ -99,6 +99,8 @@ List<Cours> list_cours = [
       ),
     ],
   ),
+
+
 ];
 
 

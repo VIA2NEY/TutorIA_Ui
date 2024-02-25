@@ -21,7 +21,7 @@ class _EtapeScreenState extends State<EtapeScreen> {
   void initState() {
     super.initState();
     // Initialise isPastList avec la même longueur que la liste des étapes
-    isPastList = List<bool>.filled(list_cours.length, false);
+    isPastList = List<bool>.filled(widget.chapitre.etapes.length, false);
   }
 
   @override
@@ -45,6 +45,7 @@ class _EtapeScreenState extends State<EtapeScreen> {
                   physics: NeverScrollableScrollPhysics(),
                   itemCount: widget.chapitre.etapes.length,
                   itemBuilder: (context, index) {
+                    print("index = $index");
                     return InkWell(
                       child: MyTimeLineTile(
                         isFirst: index == 0, // SI index = 0 true l'element est premier

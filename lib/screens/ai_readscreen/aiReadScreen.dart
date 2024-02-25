@@ -89,7 +89,8 @@ class _AiReadState extends State<AiRead> {
                               size: 70, color: Colors.white),
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            primary: const Color(0xff4ecb71),
+                            // primary: const Color(0xff4ecb71),
+                            backgroundColor: const Color(0xff4ecb71),
                             minimumSize: const Size(160, 60),
                             elevation: 10,
                             shape: RoundedRectangleBorder(

@@ -49,7 +49,7 @@ class DetailsCours extends StatelessWidget {
                           } else if (!snapshot.hasData) {
                             return ListView.builder(
                               physics: BouncingScrollPhysics(),
-                              itemCount: list_cours.length,
+                              itemCount: cours.chapitres.length,
                               itemBuilder: (context, index) {
                                 return InkWell(
                                   child: CardChapitre(
